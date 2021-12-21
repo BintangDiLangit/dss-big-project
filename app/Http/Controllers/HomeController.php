@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Multimoora\ViewMultimoora1;
+use App\Models\Multimoora\ViewMultimoora2;
+use App\Models\Multimoora\ViewMultimoora3;
+use App\Models\Multimoora\ViewMultimoora4;
 use App\Models\Topsis\ViewTopsismaxmin;
 use App\Models\Topsis\ViewTopsisnilaiv;
 use App\Models\Topsis\ViewTopsisnormalisasi;
@@ -33,7 +37,6 @@ class HomeController extends Controller
 		$vranking = ViewVranking::select('*')
 			->get();
 
-		// dd($vnormalisasi);
 
 		return view('metode.saw', compact('vmatrixkeputusan', 'vnormalisasi', 'vpraranking', 'vranking'));
 	}
@@ -54,7 +57,6 @@ class HomeController extends Controller
 		$wpnilaiv = ViewNilaiv::select('*')
 			->get();
 
-		// dd($vnormalisasi);
 
 		return view('metode.wp', compact('vmatrixkeputusan', 'wpjumbobot', 'wpnormalisasiterbobot', 'wppangkat', 'wpnilais', 'wpsums', 'wpnilaiv'));
 	}
@@ -73,11 +75,28 @@ class HomeController extends Controller
 		$topsisnilaiv = ViewTopsisnilaiv::select('*')
 			->get();
 
-		// dd($vnormalisasi);
 
 		return view(
 			'metode.topsis',
 			compact('topsispembagi', 'topsisnormalisasi', 'topsisterbobot', 'topsismaxmin', 'topsissipsin', 'topsisnilaiv')
+		);
+	}
+	function multimoorametode()
+	{
+		$multimoora1 = ViewMultimoora1::select('*')
+			->get();
+		$multimoora2 = ViewMultimoora2::select('*')
+			->get();
+		$multimoora3 = ViewMultimoora3::select('*')
+			->get();
+		$multimoora4 = ViewMultimoora4::select('*')
+			->get();
+
+
+
+		return view(
+			'metode.multimoora',
+			compact('multimoora1', 'multimoora2', 'multimoora3', 'multimoora4')
 		);
 	}
 }

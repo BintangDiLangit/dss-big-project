@@ -37,4 +37,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 	Route::get('saw', [HomeController::class, 'sawmetode'])->name('metode.saw');
 	Route::get('wp', [HomeController::class, 'wpmetode'])->name('metode.wp');
 	Route::get('topsis', [HomeController::class, 'topsismetode'])->name('metode.topsis');
+	Route::get('multimoora', [HomeController::class, 'multimoorametode'])->name('metode.multimoora');
 });
